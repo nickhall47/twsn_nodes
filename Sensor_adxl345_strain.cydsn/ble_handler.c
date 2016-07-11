@@ -7,7 +7,7 @@
  * CONFIDENTIAL AND PROPRIETARY INFORMATION
  * WHICH IS THE PROPERTY OF your company.
  *
- * ========================================
+ * ========================================^
 */
 
 #include "common.h"
@@ -32,8 +32,13 @@ void BLE_Stack_Handler( uint32 eventCode, void *eventParam)
         case CYBLE_EVT_GAPP_ADVERTISEMENT_START_STOP:
             if(CyBle_GetState() == CYBLE_STATE_DISCONNECTED)
             {
-                CySysPmSetWakeupPolarity(CY_PM_STOP_WAKEUP_ACTIVE_HIGH);
-                CySysPmStop();
+                // Try advertising again
+                CyBle_GappStartAdvertisement( CYBLE_ADVERTISING_FAST );
+                Advertising_LED_Write(0);       // Turn on Advertising LED
+                bleConnected = 0;
+                
+                //CySysPmSetWakeupPolarity(CY_PM_STOP_WAKEUP_ACTIVE_HIGH);
+                //CySysPmStop();
             }
             break;
             

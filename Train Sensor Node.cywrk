@@ -7,8 +7,9 @@
 <wrkspc_folders />
 <files />
 <projects>
-<v>.\Sensor_adxl362.cydsn\Sensor_adxl362.cyprj</v>
 <v>.\Sensor_adxl345_strain.cydsn\Sensor_adxl345_strain.cyprj</v>
+<v>.\Sensor_adxl362.cydsn\Sensor_adxl362.cyprj</v>
+<v>.\UART_Bootloader.cydsn\UART_Bootloader.cyprj</v>
 </projects>
 <workspace_id v="5a65aed6-f62a-4959-ba57-0798edaa932b" />
 <WriteAppVersionLastSavedWith v="3.3.0.7343" />

@@ -14,19 +14,26 @@
 #include "ble_handler.h"
 #include "adxl345.h"
 #include "strain.h"
+#include <stdlib.h>
 
 uint8 newDataSemaphore = 0;
 
 int main()
 {
+    // Random delay
+    uint32 seed = 0;
+    CyGetUniqueId(&seed);
+    srand(seed);
+    uint8 randNum = rand();
+    CyDelay(randNum*10);
+    
+    DEBUG_PIN_Write(1);
 
     CyGlobalIntEnable;
     
     ADXL345_Start();
     Strain_Start();
     CyBle_Start(BLE_Stack_Handler);
-
-
 
     for(;;)
     {
