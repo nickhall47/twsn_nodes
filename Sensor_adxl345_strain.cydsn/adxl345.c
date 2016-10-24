@@ -18,7 +18,7 @@ int accelerometerNotify;
 void ADXL345_Start()
 {
     SPI_Start();
-    ADXL345_WriteReg(ADXL345_REG_DATA_FORMAT, 0x01);
+    ADXL345_WriteReg(ADXL345_REG_DATA_FORMAT, 0x00);
 	ADXL345_WriteReg(ADXL345_REG_POWER_CTL, 0x08);
     while(SPI_SpiIsBusBusy());
     SPI_SpiUartClearRxBuffer();
@@ -97,6 +97,7 @@ void ADXL345_GetMeasurement()
         }
         
         SPI_SpiUartClearRxBuffer();
+        
         
         if(accelerometerNotify)
         {
